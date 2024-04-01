@@ -16,6 +16,6 @@
 
 <script>
 export default {
-    // layout: "auth"
+  layout: "auth"
 }
 </script>
