@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center">
+    <v-col class="text-center" cols="12">
       <img
         src="/v.png"
         alt="Vuetify.js"
@@ -15,11 +15,16 @@
         </footer>
       </blockquote>
     </v-col>
+    <v-col cols="3">
+      <cards-component :title="`Sample Card`" :value="100" :icon="`mdi-cog`" :color="`purple`"></cards-component>
+    </v-col>
   </v-row>
 </template>
 
 <script>
+import CardsComponent from '../components/CardsComponent.vue'
 export default {
+  components: { CardsComponent },
   name: 'InspirePage'
 }
 </script>

@@ -1,4 +1,21 @@
 import colors from 'vuetify/es5/util/colors'
+const lightTheme = {
+  primary: "#2196F3", // change header color from here || "#1e88e6", "#21c1d6", "#fc4b6c", "#563dea", "#9C27b0", "#ff9800"
+  info: "#21c1d6",
+  success: "#93d500",
+  accent: "#fc4b6c",
+  warning: "#ffb22a",
+  default: "#563dea",
+  background: "E9EBEE",
+};
+const darkTheme = {
+  primary: "#005cb9", // change header color from here || "#1e88e6", "#21c1d6", "#fc4b6c", "#563dea", "#9C27b0", "#ff9800"
+  info: "#21c1d6",
+  success: "#93d500",
+  accent: "#fc4b6c",
+  warning: "#ffb22a",
+  default: "#563dea",
+};
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -89,19 +106,16 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     theme: {
-      dark: true,
+      options: {
+        customProperties: true
+      },
       themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
+        dark: darkTheme,
+        light: lightTheme
+      },
+      dark: false
     }
   },
 
