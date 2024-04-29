@@ -1,4 +1,5 @@
 <template>
+  <v-container>
   <v-row>
     <v-col class="text-center" cols="12">
       <img
@@ -19,6 +20,7 @@
       <cards-component :title="`Sample Card`" :value="100" :icon="`mdi-cog`" :color="`purple`"></cards-component>
     </v-col>
   </v-row>
+</v-container>
 </template>
 
 <script>

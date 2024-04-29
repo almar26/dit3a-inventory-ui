@@ -3,12 +3,13 @@
     <v-navigation-drawer
       v-model="drawer"
       app
-      color="white"
+      color="#01579B"
       mini-variant
       mini-variant-width="90"
+      dark
     >
       <v-avatar class="d-block text-center mx-auto mt-4" size="45">
-        <v-icon color="#0D47A1" size="45">mdi-coffee</v-icon>
+        <v-icon color="white" size="45">mdi-coffee</v-icon>
       </v-avatar>
       <v-list flat class="mt-4">
         <v-list-item-group v-model="selectedItem">
@@ -41,7 +42,7 @@
           text-align: center;
         "
       >
-        <v-icon>mdi-logout</v-icon><br /><span class="caption">Logout</span>
+        <v-icon>mdi-logout</v-icon><br /><span class="caption white--text">Logout</span>
       </div>
     </v-navigation-drawer>
     <!-- <v-navigation-drawer
@@ -127,6 +128,11 @@ export default {
           icon: "mdi-home",
           title: "Home",
           to: "/",
+        },
+        {
+          icon: "mdi-clipboard-list",
+          title: "Inventory",
+          to: "/inventory",
         },
         {
           icon: "mdi-shopping",
