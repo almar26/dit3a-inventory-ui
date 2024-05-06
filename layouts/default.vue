@@ -117,6 +117,7 @@
 <script>
 export default {
   name: "DefaultLayout",
+  middleware: 'auth',
   data() {
     return {
       selectedItem: 0,

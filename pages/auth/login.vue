@@ -56,6 +56,8 @@
 export default {
   name: "IndexPage",
   layout: "auth",
+  middleware: 'auth',
+  auth: 'guest',
   data() {
     return {
       valid: true,
@@ -71,9 +73,34 @@ export default {
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        console.log("Successfully Login");
-        this.$router.push("/dashboard");
+        this.isLoading = true
+        // console.log("Successfully Login");
+        // this.$router.push("/");
+        this.login(this.username, this.password)
       }
+    },
+
+    login(username, password) {
+      this.$auth
+        .loginWith('local', {
+          data: {
+            identifier: username,
+            password: password,
+          },
+        })
+        .then((res) => {
+          console.log('User Profile', res.data.user)
+          console.log('User token', res.data.jwt)
+        })
+        .catch((error) => {
+          console.log(error)
+          if (error.response.data) {
+            console.log(error.response.data.error.message)
+            alert(error.response.data.error.message)
+            this.isLoading = false
+            this.isSignInDisabled = false
+          }
+        })
     },
   },
 };
