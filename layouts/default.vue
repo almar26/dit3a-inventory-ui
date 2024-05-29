@@ -42,7 +42,8 @@
           text-align: center;
         "
       >
-        <v-icon>mdi-logout</v-icon><br /><span class="caption white--text">Logout</span>
+        <!-- <v-icon>mdi-logout</v-icon><br /><span class="caption white--text">Logout</span> -->
+        <v-btn @click="$auth.logout()">Logout</v-btn>
       </div>
     </v-navigation-drawer>
     <!-- <v-navigation-drawer
@@ -138,7 +139,7 @@ export default {
         {
           icon: "mdi-shopping",
           title: "Product",
-          to: "/inspire",
+          to: "/product",
         },
       ],
       miniVariant: false,

@@ -5,7 +5,7 @@
 
       
       
-      <v-form ref="form" v-model="valid" lazy-validation class="mx-15">
+      <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="submit()" class="mx-15">
         <v-text-field
           v-model="email"
           :rules="emailRules"
@@ -23,7 +23,7 @@
           outlined
           required
         ></v-text-field>
-        <v-btn :disabled="!valid" color="primary" block @click="submit">
+        <v-btn :disabled="!valid" color="primary" block type="submit">
           Sign In
         </v-btn>
       </v-form>
@@ -76,15 +76,15 @@ export default {
         this.isLoading = true
         // console.log("Successfully Login");
         // this.$router.push("/");
-        this.login(this.username, this.password)
+        this.login(this.email, this.password)
       }
     },
 
-    login(username, password) {
+    login(email, password) {
       this.$auth
         .loginWith('local', {
           data: {
-            identifier: username,
+            identifier: email,
             password: password,
           },
         })
